@@ -18,6 +18,14 @@ class AuthService {
     const { data } = await http.get("/me");
     return data;
   }
+
+  async emailCheck(email) {
+    console.log(email);
+    const { data } = await http.post("/email-check", {
+      params: { email: email },
+    });
+    return data;
+  }
 }
 
 const authService = new AuthService();

@@ -23,7 +23,7 @@
           aria-describedby="password"
         />
       </div>
-      <p v-if="loginFailed" class="error-message">Something went wrong</p>
+      <p v-if="loginFailed" class="text-danger">Credentials are incorrect</p>
       <button type="submit" class="btn btn-primary">Login</button>
     </form>
   </div>
@@ -51,6 +51,7 @@ export default {
         this.$router.push('/');
       } catch {
         this.loginFailed = true;
+        setTimeout(()=> {this.loginFailed = false}, 5000)
       }
     },
     ...mapActions('auth', ['login']),
@@ -59,7 +60,4 @@ export default {
 </script>
 
 <style scoped>
-.error-message {
-  color: red;
-}
 </style>

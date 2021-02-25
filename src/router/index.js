@@ -1,22 +1,36 @@
 import Vue from "vue";
-import Gallery from "../views/Gallery";
+import Galleries from "../views/Galleries.vue";
 import VueRouter from "vue-router";
-import Register from "../views/Register.vue";
-import Login from "../views/Login.vue";
+import MyGalleries from "../views/MyGalleries.vue";
+import CreateNewGallery from "../views/CreateNewGallery.vue";
+import Register from "../views/auth/Register.vue";
+import Login from "../views/auth/Login.vue";
 import { globalAuthGuard } from "../guards/authGuard";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/gallery",
-    name: "Gallery",
-    component: Gallery,
+    path: "/galleries",
+    name: "Galleries",
+    component: Galleries,
     meta: { authRequired: true },
   },
   {
     path: "/",
-    redirect: "/gallery",
+    redirect: "/galleries",
+  },
+  {
+    path: "/my-galleries",
+    name: "MyGalleries",
+    component: MyGalleries,
+    meta: { authRequired: true },
+  },
+  {
+    path: "/create-new-gallery",
+    name: "CreateNewGallery",
+    component: CreateNewGallery,
+    meta: { authRequired: true },
   },
   {
     path: "/register",

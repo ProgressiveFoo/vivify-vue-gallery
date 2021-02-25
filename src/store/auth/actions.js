@@ -25,6 +25,7 @@ export const actions = {
       store.commit("setActiveUser", {});
     }
   },
+
   async logout(store) {
     await authService.logout();
     store.commit("setToken", null);
