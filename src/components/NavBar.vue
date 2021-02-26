@@ -11,7 +11,6 @@
         <router-link to="/login">Login</router-link>
       </template>
       <template v-else>
-        <span>Hello {{ activeUser.first_name }} |</span>
         <a class="button" @click="logout">Logout</a>
       </template>
     </div>
